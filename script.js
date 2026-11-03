@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Mobile navigation
   const menuToggle = document.querySelector(".menu-toggle");
-  const navMenu = document.querySelector(".nav-menu");
+  const navMenu = document.querySelector(".main-nav");
 
   if (menuToggle && navMenu) {
     menuToggle.addEventListener("click", () => {
@@ -26,16 +26,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Update footer year automatically
-  const yearElement = document.querySelector("#current-year");
+  const yearElement = document.querySelector("#year");
 
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
   }
 
-  // Smooth scrolling for internal links
+  // Smooth scrolling
   document.querySelectorAll('a[href^="#"]').forEach(link => {
     link.addEventListener("click", event => {
       const targetId = link.getAttribute("href");
+
+      if (!targetId || targetId === "#") return;
+
       const target = document.querySelector(targetId);
 
       if (target) {
@@ -48,49 +51,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Contact form handling
-  const contactForm = document.querySelector("#contact-form");
+  // Contact form
+  // Form submissions are sent directly to Formspree.
+  // Do not prevent the default form submission.
+  const contactForm = document.querySelector("#enquiryForm");
 
   if (contactForm) {
-    contactForm.addEventListener("submit", event => {
-      event.preventDefault();
+    contactForm.addEventListener("submit", () => {
+      const submitButton = contactForm.querySelector(
+        'button[type="submit"]'
+      );
 
-      const name = contactForm.querySelector('[name="name"]')?.value.trim();
-      const email = contactForm.querySelector('[name="email"]')?.value.trim();
-      const service = contactForm.querySelector('[name="service"]')?.value.trim();
-      const message = contactForm.querySelector('[name="message"]')?.value.trim();
-
-      if (!name || !email || !message) {
-        alert("Please complete all required fields.");
-        return;
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending enquiry...";
       }
-
-      const subject = encodeURIComponent(
-        `Website Enquiry - ${service || "General Enquiry"}`
-      );
-
-      const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nService: ${service || "Not specified"}\n\nMessage:\n${message}`
-      );
-
-      window.location.href =
-        `mailto:delegendtech@gmail.com?subject=${subject}&body=${body}`;
-    });
-  }
-
-  // Back to top button
-  const backToTop = document.querySelector("#back-to-top");
-
-  if (backToTop) {
-    window.addEventListener("scroll", () => {
-      backToTop.classList.toggle("visible", window.scrollY > 300);
-    });
-
-    backToTop.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
     });
   }
 
@@ -112,8 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
     revealElements.forEach(element => element.classList.add("visible"));
   }
 
-  // Current year and website initialization
-  console.log("De'legend Technologies & Creative Enterprise is online!");
+  console.log(
+    "De'legend Technologies & Creative Enterprise is online!"
+  );
 
 });
-          

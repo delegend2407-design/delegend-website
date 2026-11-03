@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="De’legend D emblem">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0b9"/><stop offset=".28" stop-color="#d5a94e"/><stop offset=".58" stop-color="#fff0b4"/><stop offset="1" stop-color="#9d6d23"/></linearGradient><filter id="s"><feGaussianBlur stdDeviation="5"/></filter></defs>
+<circle cx="200" cy="200" r="155" fill="none" stroke="#d5a94e" stroke-opacity=".28" stroke-width="2" stroke-dasharray="4 12"/>
+<path d="M77 251 C120 326 276 333 330 208 C359 141 307 78 243 59" fill="none" stroke="url(#g)" stroke-width="12" stroke-linecap="round"/>
+<path d="M75 251 C142 289 260 263 310 174" fill="none" stroke="#f5d98e" stroke-opacity=".35" stroke-width="3"/>
+<path d="M126 82 H207 C283 82 326 131 326 202 C326 274 277 318 207 318 H126 Z M174 128 V272 H204 C249 272 278 246 278 202 C278 158 249 128 204 128 Z" fill="url(#g)" fill-rule="evenodd"/>
+<path d="M43 209 l24 -24 24 24 -24 24z M76 157 l17 -17 17 17 -17 17z M99 112 l12 -12 12 12 -12 12z" fill="url(#g)" opacity=".9"/>
+<circle cx="331" cy="204" r="7" fill="#fff0b9"/><circle cx="75" cy="251" r="6" fill="#fff0b9"/>
+</svg>
